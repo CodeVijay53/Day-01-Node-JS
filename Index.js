@@ -29,13 +29,16 @@ fs.readdir("./", "utf-8", (err, files) => {
 
 //API Endpoints
 //create a server object:
-const server = http
-  .createServer((req, res) => {
-    if (req.url === "./") {
-      res.write(
-        JSON.stringify(`Current-Time-Date : ${FullDate} & ${FullTime}`)
-      );
-    }
-    res.end();
-  })
-  .listen(8080);
+
+const server = http.createServer((request, response) => {
+  if (request.url === "/") {
+    response.write(
+      JSON.stringify({
+        Current_date_time: `${new Date()}`,
+      })
+    );
+  }
+  response.end();
+});
+
+server.listen(8080);
