@@ -29,7 +29,6 @@ fs.readdir("./", "utf-8", (err, files) => {
 
 //API Endpoints
 //create a server object:
-
 const server = http.createServer((request, response) => {
   if (request.url === "/") {
     response.write(
